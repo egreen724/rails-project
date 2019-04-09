@@ -1,0 +1,2 @@
+class ActivityKeywordsController < ApplicationController
+end

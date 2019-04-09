@@ -1,0 +1,2 @@
+class ActivityKeyword < ApplicationRecord
+end
