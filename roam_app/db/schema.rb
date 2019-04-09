@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_145816) do
+ActiveRecord::Schema.define(version: 2019_04_09_152826) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_145816) do
     t.boolean "parking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "creator_id"
+    t.index ["creator_id"], name: "index_activities_on_creator_id"
   end
 
   create_table "activity_keywords", force: :cascade do |t|
