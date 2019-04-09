@@ -26,3 +26,12 @@
   <% end %>
   </ul>
 </div>
+
+<div class="past_activities">
+  <ul> Past Activities:
+  <% @user.trips.each do |trip| %>
+    <% if trip.taken == true %>
+    <li><%= link_to "#{trip.activity_id.name}", "/trip/#{trip.id}" %></li>
+  <% end %>
+  </ul>
+</div>
