@@ -2,10 +2,17 @@
 
 <%= form_for :activity, url: '/activities', method: :post do |f| %>
   Name: <%= f.text_field :name %> <br>
+  Type: <%= f.select :from, [ 'Hike','Kayaking','Bike Ride' ], :prompt => 'Select One' %> <br>
   Distance: <%= f.text_field :distance %> <br>
   Street Address: <%= f.text_field :street_address %> <br>
-  Bio: <%= f.text_field :nausea %> <br>
-  Password: <%= f.password_field :password %> <br>
-  Password Confirmation: <%= f.password_field :password_confirmation %> <br>
-  <%= f.submit "Sign Up" %>
+  City: <%= f.text_field :city %> <br>
+  State: <%= f.text_field :state %> <br>
+  Zip Code: <%= f.text_field :zip_code %> <br>
+  Keywords: <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name %> <br>
+  New Keyword:
+    <%= f.fields_for :keywords do |keyword| %>
+      <%= keyword.text_field :name %>
+    <% end %>
+
+  <%= f.submit "Add Activity" %>
 <% end %>
