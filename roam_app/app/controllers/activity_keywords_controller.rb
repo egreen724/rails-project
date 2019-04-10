@@ -1,2 +1,0 @@
-class ActivityKeywordsController < ApplicationController
-end
