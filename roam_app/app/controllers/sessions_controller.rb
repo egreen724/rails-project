@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #skip_before_action :verify_user_is_authenticated, only: [:new,:create]
+  skip_before_action :verify_user_is_authenticated, only: [:new,:create]
 
   def new
 
@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
 
    def destroy
      session.delete :user_id
-
      redirect_to root_path
    end
 end
