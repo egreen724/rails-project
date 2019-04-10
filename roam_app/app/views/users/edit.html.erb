@@ -1,0 +1,8 @@
+<h2> Edit Your Profile </h2>
+
+<%= form_for @user, method: :put do |f| %>
+  <%= render 'form' %>
+  <!-- Password: <%= f.password_field :password %> <br>
+  Password Confirmation: <%= f.password_field :password_confirmation %> <br> -->
+  <%= f.submit "Edit Profile" %>
+<% end %>
