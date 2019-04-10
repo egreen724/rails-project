@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_user_is_authenticated, only: [:new, :create, :home]
 
   def home
 
@@ -35,14 +36,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update (name: params[:name], age: params[:age], bio: params[:bio])
+    #check if email already exists in the database?
+    @user.update(name: params[:name], email: params[:email], age: params[:age], bio: params[:bio])
     redirect_to user_path(@user)
-    
+
   end
 
   private
 
    def user_params
-     params.require(:user).permit(:name, :email, :bio, :ago, :password, :password_confirmation)
+     params.require(:user).permit(:name, :email, :bio, :age, :password, :password_confirmation)
    end
 end
