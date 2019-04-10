@@ -1,0 +1,9 @@
+<%= form_for :user, url: '/signin', method: :post do |f| %>
+  Email: <%= f.text_field :email %> <br>
+  Password: <%= f.password_field :password, id: 'password' %> <br>
+  <%= f.submit "Sign In" %>
+<% end %>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>

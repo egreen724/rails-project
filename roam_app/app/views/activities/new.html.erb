@@ -2,12 +2,13 @@
 
 <%= form_for :activity, url: '/activities', method: :post do |f| %>
   Name: <%= f.text_field :name %> <br>
-  Type: <%= f.select :from, [ 'Hike','Kayaking','Bike Ride' ], :prompt => 'Select One' %> <br>
+  Type: <%= f.select :type, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
   Distance: <%= f.text_field :distance %> <br>
   Street Address: <%= f.text_field :street_address %> <br>
   City: <%= f.text_field :city %> <br>
   State: <%= f.text_field :state %> <br>
   Zip Code: <%= f.text_field :zip_code %> <br>
+  Difficulty Rating: <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
   Keywords: <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name %> <br>
   New Keyword:
     <%= f.fields_for :keywords do |keyword| %>
