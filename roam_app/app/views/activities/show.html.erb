@@ -1,0 +1,18 @@
+<h1> <%= @activity.name %> </h1>
+
+
+<h2> Distance: <%= @activity.name %> </h2> <br>
+<h2> Difficulty Rating: <%= @activity.difficulty_rating %> </h2> <br>
+<h2> Type: <%= @activity.type %> </h2> <br>
+<h2> Number of Past Users: <%= @activity.users.length %> </h2> <br>
+<h2> Keywords: <%= @activity.keywords.each do |keyword| %> </h2>
+  <ul>
+    <li> <%= keyword.name %> </li>
+  </ul>
+  <%end%>
+  <br>
+<h2> User Comments: <%= @activity.trips.each do |trip| %> </h2>
+  <ul>
+    <li> <%= trip.comment %> </li>
+  </ul>
+  <%end%>
