@@ -27,6 +27,11 @@ class ActivitiesController < ApplicationController
 
   def edit
     @activity = Activity.find(params[:id])
+
+    creator = User.find_by(id: @activity.creator_id)
+
+    unless current_user.id == creator.id
+      flash[:message]= "Only the creator of this activity can make changes."
   end
 
   def update
@@ -48,7 +53,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all 
+    @activities = Activity.all
   end
 
   private
