@@ -1,0 +1,11 @@
+<h1> Add an Activity </h1>
+
+<%= form_for :activity, url: '/activities', method: :post do |f| %>
+  Name: <%= f.text_field :name %> <br>
+  Distance: <%= f.text_field :distance %> <br>
+  Street Address: <%= f.text_field :street_address %> <br>
+  Bio: <%= f.text_field :nausea %> <br>
+  Password: <%= f.password_field :password %> <br>
+  Password Confirmation: <%= f.password_field :password_confirmation %> <br>
+  <%= f.submit "Sign Up" %>
+<% end %>
