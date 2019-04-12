@@ -4,7 +4,7 @@
 
 <table>
   <tr>
-    <th> Type </th>
+    <th> Category </th>
     <th> Name </th>
     <th> More Info </th>
     <th>  </th>
@@ -12,7 +12,7 @@
   </tr>
   <% unless Activity.all.length == 0 %>
   <tr> <% @activities.each do |activity| %>
-    <td> <%= activity.type %> </td>
+    <td> <%= activity.category %> </td>
     <th> <%= activity.name %></th>
     <th> <%= link_to "More details...", "/activities/#{activity.id}/show" %> </th>
     <td> <%= link_to "Log a Trip" %> </td>

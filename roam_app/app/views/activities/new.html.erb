@@ -2,7 +2,7 @@
 
 <%= form_for :activity, url: '/activities', method: :post do |f| %>
   Name: <%= f.text_field :name %> <br>
-  Type: <%= f.select :type, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
+  Category: <%= f.select :category, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
   Distance (in miles): <%= f.text_field :distance %> <br>
   Street Address: <%= f.text_field :street_address %> <br>
   City: <%= f.text_field :city %> <br>

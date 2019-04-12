@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    
+
     activity = Activity.new(activity_params)
 
     if Activity.find_by(name: params[:activity][:name])
@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
     #check if name already exists in the database?
     @activity.update(
       name: params[:name],
-      type: params[:type],
+      category: params[:category],
       street_address: params[:street_address],
       city: params[:city],
       state: params[:state],
@@ -59,7 +59,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :type, :distance, :street_address, :city, :state, :zip_code, :difficulty_rating, keyword_ids:[], keyword_attributes: [:name])
+    params.require(:activity).permit(:name, :category, :distance, :street_address, :city, :state, :zip_code, :difficulty_rating, keyword_ids:[], keyword_attributes: [:name])
   end
 
 end

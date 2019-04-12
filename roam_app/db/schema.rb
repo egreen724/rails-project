@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_152826) do
+ActiveRecord::Schema.define(version: 2019_04_12_192843) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_152826) do
     t.string "city"
     t.string "state"
     t.integer "zip_code"
-    t.string "type"
+    t.string "category"
     t.integer "difficulty_rating"
     t.boolean "parking"
     t.datetime "created_at", null: false
