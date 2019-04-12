@@ -36,9 +36,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     #check if email already exists in the database?
-    @user.update(name: params[:name], email: params[:email], age: params[:age], bio: params[:bio])
+    @user.update(name: params[:user][:name], email: params[:user][:email], age: params[:user][:age], bio: params[:user][:bio])
     redirect_to user_path(@user)
-
   end
 
    def user_params

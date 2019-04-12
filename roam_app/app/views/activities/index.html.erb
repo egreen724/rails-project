@@ -1,0 +1,23 @@
+<h1> All Activities </h1>
+
+<%= link_to "Add a new Activity", '/activities/new' %>
+
+<table>
+  <tr>
+    <th> Type </th>
+    <th> Name </th>
+    <th> More Info </th>
+    <th>  </th>
+    <th>  </th>
+  </tr>
+  <% unless Activity.all.length == 0 %>
+  <tr> <% @activities.each do |activity| %>
+    <td> <%= activity.type %> </td>
+    <th> <%= activity.name %></th>
+    <th> <%= link_to "More details...", "/activities/#{activity.id}/show" %> </th>
+    <td> <%= link_to "Log a Trip" %> </td>
+    <td> <%= link_to "Add to my To Do List" %> </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>

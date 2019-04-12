@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    
     activity = Activity.new(activity_params)
 
     if Activity.find_by(name: params[:activity][:name])
@@ -32,6 +33,7 @@ class ActivitiesController < ApplicationController
 
     unless current_user.id == creator.id
       flash[:message]= "Only the creator of this activity can make changes."
+    end
   end
 
   def update
@@ -56,10 +58,8 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
-  private
-
   def activity_params
-    params.require(:activity).permit(:name, :type, :street_address, :city, :state, :zip_code, :distance, :difficulty_rating, keyword_ids:[], keyword_attributes: [:name])
+    params.require(:activity).permit(:name, :type, :distance, :street_address, :city, :state, :zip_code, :difficulty_rating, keyword_ids:[], keyword_attributes: [:name])
   end
 
 end

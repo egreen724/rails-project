@@ -1,12 +1,13 @@
 <h1> <%= @user.name %> </h1>
 
-<h2> Bio: <%= @user.bio %> </h2>
-<h2> Age: <%= @user.age %> </h2>
+<h3> Bio: <%= @user.bio %> </h3>
+<h3> Age: <%= @user.age %> </h3>
 
 <%= link_to "Log a Trip", "/trips/new" %> <br>
 <%= link_to "See All Activities", "/activities" %>
 
 <br>
+<% unless @user.trips.length == 0 %>
 <div id="most_recent_trip">
   <h2>Most Recent Trip: </h2>
   <h3>Name:<%= @user.trips.last.name %></h3>
@@ -17,12 +18,14 @@
   <h3>Keywords:<%= @user.trips.last.keywords %></h3>
   <h3>Comments:<%= @user.trips.last.comment %></h3>
 </div>
+<% end %>
 
 <div class="to_do">
   <ul> To Do List:
   <% @user.trips.each do |trip| %>
     <% if trip.taken == false %>
     <li><%= trip.activity_id.name %></li>
+    <% end %>
   <% end %>
   </ul>
 </div>
@@ -32,8 +35,9 @@
   <% @user.trips.each do |trip| %>
     <% if trip.taken == true %>
     <li><%= link_to "#{trip.activity_id.name}", "/trip/#{trip.id}" %></li>
+    <% end %>
   <% end %>
   </ul>
 </div>
 
-<%= link_to "Edit Your Profile", "/user/#{@user.id}/edit" %> <br>
+<%= link_to "Edit Your Profile", edit_user_path(@user) %> <br>
