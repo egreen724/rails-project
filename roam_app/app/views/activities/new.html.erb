@@ -9,11 +9,18 @@
   State: <%= f.text_field :state %> <br>
   Zip Code: <%= f.text_field :zip_code %> <br>
   Difficulty Rating: <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
+  Parking Available?: <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
   Keywords: <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name %> <br>
   New Keyword:
     <%= f.fields_for :keywords do |keyword| %>
       <%= keyword.text_field :name %>
     <% end %>
+  <%= f.hidden_field :creator_id, :value => "#{@user.id}"%>
     <br>
   <%= f.submit "Add Activity" %>
 <% end %>
+
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>

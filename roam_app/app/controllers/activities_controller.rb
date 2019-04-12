@@ -2,13 +2,13 @@ class ActivitiesController < ApplicationController
   skip_before_action :verify_user_is_authenticated, only: [:index, :show]
 
   def new
-
+    @user = current_user
   end
 
   def create
 
     activity = Activity.new(activity_params)
-
+     
     if Activity.find_by(name: params[:activity][:name])
       flash[:notice] = "This activity already exists in the Roam system."
     elsif
@@ -17,7 +17,7 @@ class ActivitiesController < ApplicationController
         redirect_to ("/activities/#{@activity.id}")
     else
       flash[:notice] = "Please complete the form with valid entries."
-      redirect_to(controller: 'activity', action: 'new')
+      redirect_to(controller: 'activities', action: 'new')
     end
   end
 
@@ -59,7 +59,20 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :category, :distance, :street_address, :city, :state, :zip_code, :difficulty_rating, keyword_ids:[], keyword_attributes: [:name])
+    params.require(:activity).permit(
+      :name,
+      :category,
+      :distance,
+      :street_address,
+      :city,
+      :state,
+      :zip_code,
+      :parking,
+      :creator_id,
+      :difficulty_rating,
+      keyword_ids:[],
+      keyword_attributes: [:name]
+    )
   end
 
 end
