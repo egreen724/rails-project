@@ -13,11 +13,12 @@
   <% unless Activity.all.length == 0 %>
   <tr> <% @activities.each do |activity| %>
     <td> <%= activity.category %> </td>
-    <th> <%= activity.name %></th>
-    <th> <%= link_to "More details...", "/activities/#{activity.id}" %> </th>
-    <td> <%= link_to "Log a Trip" %> </td>
-    <td> <%= link_to "Add to my To Do List" %> </td>
+    <td> <%= activity.name %></td>
+    <td> <%= link_to "More details...", "/activities/#{activity.id}" %> </td>
+    <td> <%= link_to "Log a Trip", "/trips/new" %> </td>
+    <td> <%= link_to "Add to my To Do List", "/trips/new" %> </td>
+  </tr> <br>
     <% end %>
-  </tr>
+
   <% end %>
 </table>

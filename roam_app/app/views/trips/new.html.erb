@@ -2,16 +2,16 @@
   Activity Name: <%= f.collection_select :activity_id, Activity.all, :id, :name %> <br>
   <%= f.hidden_field :user_id, :value => @current_user.id %>
 
-  <% if @current_user.trips.contains(id: params[:activity][:id]) %>
+  <% if @current_user.trips == [] %>
+    <%= f.hidden_field :taken, :value => false %>
+    <%= f.submit "Add to To Do List" %>
+
+  <% else %>
     Date: <%= f.text_field :date %> <br>
     Time (in minutes): <%= f.text_field :time_ellapsed %> <br>
     User Comments: <%= f.text_field :comment %> <br>
-    <%= f.hidden_field :taken, :value => "True" %>
+    <%= f.hidden_field :taken, :value => true %>
     <%= f.submit "Log a Trip" %>
-
-  <% else %>
-    <%= f.hidden_field :taken, :value => "False" %>
-    <%= f.submit "Add to To Do List" %>
     <% end %>
   <% end %>
 
