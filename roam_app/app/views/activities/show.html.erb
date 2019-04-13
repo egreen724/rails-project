@@ -14,9 +14,9 @@
   </ul>
   <%end%>
   <br>
-<h2> User Comments: <%= @activity.trips.each do |trip| %> </h2>
-  <ul>
-    <li> <%= trip.comment %> </li>
+<h2> User Comments: <% @activity.trips.each do |trip| %> </h2>
+  <ul> 
+    <li> <%= trip.comment unless trip.comment == nil %> </li>
   </ul>
   <%end%>
 

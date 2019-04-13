@@ -1,11 +1,11 @@
-<% binding.pry %>
+
 <h2> Activity Name: <%= @trip.activity.name %> </h2>
 <% if @trip.date  %>
     <h3> Date: <%= @trip.date %> </h3>
 <% end %>
 
 <% if @trip.time_ellapsed  %>
-    <h3> Time: <%= @trip.time_ellapsed.mins_to_hours %> </h3>
+    <h3> Time: <%= @trip.time_ellapsed %> </h3>
 <% end %>
 
 <% if @trip.comment  %>
