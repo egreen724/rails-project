@@ -6,4 +6,11 @@ class Activity < ApplicationRecord
   has_many :keywords, through: :activity_keywords
   accepts_nested_attributes_for :keywords
 
+  def keywords_attributes=(keyword_attributes)
+    keyword_attributes.values.each do |keyword_attribute|
+      keyword = Keyword.find_or_create_by(keyword_attribute)
+      self.keywords << keyword
+    end
+  end
+
 end

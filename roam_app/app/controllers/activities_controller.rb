@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
 
   def new
     @user = current_user
+    @activity = Activity.new
   end
 
   def create
@@ -30,10 +31,6 @@ class ActivitiesController < ApplicationController
   def edit
     @activity = Activity.find(params[:id])
     @creator = User.find_by(id: @activity.creator_id)
-
-    unless current_user.id == creator.id
-      flash[:message]= "Only the creator of this activity can make changes."
-    end
   end
 
   def update
@@ -69,7 +66,7 @@ class ActivitiesController < ApplicationController
       :creator_id,
       :difficulty_rating,
       keyword_ids:[],
-      keyword_attributes: [:name]
+      keywords_attributes: [:name]
     )
   end
 

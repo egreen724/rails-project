@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :verify_user_is_authenticated, only: [:new, :create, :home]
 
   def home
-
+    @current_user = current_user
   end
 
   def new
