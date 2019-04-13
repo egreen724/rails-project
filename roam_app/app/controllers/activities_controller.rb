@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   def create
 
     activity = Activity.new(activity_params)
-     
+
     if Activity.find_by(name: params[:activity][:name])
       flash[:notice] = "This activity already exists in the Roam system."
     elsif
@@ -23,13 +23,13 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
-
+    @creator = User.find_by(id: @activity.creator_id)
+    @current_user = current_user
   end
 
   def edit
     @activity = Activity.find(params[:id])
-
-    creator = User.find_by(id: @activity.creator_id)
+    @creator = User.find_by(id: @activity.creator_id)
 
     unless current_user.id == creator.id
       flash[:message]= "Only the creator of this activity can make changes."
@@ -40,16 +40,14 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     #check if name already exists in the database?
     @activity.update(
-      name: params[:name],
-      category: params[:category],
-      street_address: params[:street_address],
-      city: params[:city],
-      state: params[:state],
-      zip_code: params[:zip_code],
-      distance: params[:distance],
-      difficulty_rating: params[:difficulty_rating],
-      keyword_ids:[], #check this
-      keyword_attributes: [:name] #check this
+      name: params[:activity][:name],
+      category: params[:activity][:category],
+      street_address: params[:activity][:street_address],
+      city: params[:activity][:city],
+      state: params[:activity][:state],
+      zip_code: params[:activity][:zip_code],
+      distance: params[:activity][:distance],
+      difficulty_rating: params[:activity][:difficulty_rating] #check this
       )
     redirect_to activity_path(@activity)
   end

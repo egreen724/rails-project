@@ -2,7 +2,7 @@
 
 <!-- map image? -->
 
-<h2> Distance: <%= @activity.name %> </h2> <br>
+<h2> Distance: <%= @activity.distance %> </h2> <br>
 <h2> Difficulty Rating: <%= @activity.difficulty_rating %> </h2> <br>
 <h2> Category: <%= @activity.category %> </h2> <br>
 <h2> Number of Past Users: <%= @activity.users.length %> </h2> <br>
@@ -19,4 +19,6 @@
   <%end%>
 
 <br>
+<% if @creator == @current_user %>
   <%= link_to "Edit this Activity", edit_activity_path(@activity) %>
+<% end %>

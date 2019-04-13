@@ -12,8 +12,8 @@
   Parking Available?: <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
   Keywords: <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name %> <br>
   New Keyword:
-    <%= f.fields_for :keywords do |keyword| %>
-      <%= keyword.text_field :name %>
+    <%= f.fields_for :keywords, activity.keywords.build do |keywords_fields| %>
+      <%= keywords_fields.text_field :name %>
     <% end %>
   <%= f.hidden_field :creator_id, :value => "#{@user.id}"%>
     <br>
