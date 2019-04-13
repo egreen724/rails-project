@@ -1,7 +1,8 @@
 <h1> Add an Activity </h1>
 
 <%= render 'form', activity: Activity.new %>
-
+<%= f.submit "Add Activity" %>
+<% end %>
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
