@@ -14,6 +14,10 @@ class Activity < ApplicationRecord
     where(state: state_input)
   end
 
+  def self.keyword_filter(keyword_input)
+    includes(keywords: :names).where(names: keyword_input)
+  end
+
   def self.category_filter(category_input)
     where(category: category_input)
   end

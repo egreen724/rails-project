@@ -1,4 +1,4 @@
-<%= form_for @trip, url: '/trips', method: :post do |f| %>
+<%= form_for @trip do |f| %>
 <br>
   Activity Name: <%= f.collection_select :activity_id, Activity.all, :id, :name %> <br>
   <%= f.hidden_field :user_id, :value => @current_user.id %>

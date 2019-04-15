@@ -13,7 +13,7 @@
   <h2>Most Recent Trip: </h2>
   <h3>Name:<%= @user.trips.last.activity.name %></h3>
   <h3>Distance:<%= @user.trips.last.activity.distance %> miles </h3>
-  <h3>Time:<%= @user.trips.last.time_ellapsed %></h3>
+  <h3>Time:<%= @user.trips.last.time_ellapsed %> minutes</h3>
   <h3>Date:<%= @user.trips.last.date %></h3>
   <h3>Category:<%= @user.trips.last.activity.category %></h3>
   <h3>Keywords:<% @user.trips.last.activity.keywords.each do |keyword| %>
@@ -28,7 +28,7 @@
   <ul> To Do List:
   <% @user.trips.each do |trip| %>
     <% if trip.taken == false %>
-    <li><%= trip.activity.name %></li>
+    <li><%= link_to "#{trip.activity.name}", "/trips/#{trip.id}" %></li>
     <% end %>
   <% end %>
   </ul>

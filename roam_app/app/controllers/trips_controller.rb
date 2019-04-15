@@ -15,6 +15,17 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+    @current_user = current_user
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(trip_params)
+    redirect_to ("/trips/#{@trip.id}")
+  end
+
   def trip_params
     params.require(:trip).permit(
       :activity_id,

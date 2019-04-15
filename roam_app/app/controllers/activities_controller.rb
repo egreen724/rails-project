@@ -1,5 +1,4 @@
 class ActivitiesController < ApplicationController
-  skip_before_action :verify_user_is_authenticated, only: [:index, :show]
 
   def new
     @user = current_user
@@ -30,32 +29,28 @@ class ActivitiesController < ApplicationController
 
   def edit
     @activity = Activity.find(params[:id])
+    @user = current_user
     @creator = User.find_by(id: @activity.creator_id)
   end
 
   def update
     @activity = Activity.find(params[:id])
     #check if name already exists in the database?
-    @activity.update(
-      name: params[:activity][:name],
-      category: params[:activity][:category],
-      street_address: params[:activity][:street_address],
-      city: params[:activity][:city],
-      state: params[:activity][:state],
-      zip_code: params[:activity][:zip_code],
-      distance: params[:activity][:distance],
-      difficulty_rating: params[:activity][:difficulty_rating] #check this
-      )
+    binding.pry
+    @activity.update(activity_params)
     redirect_to activity_path(@activity)
   end
 
   def index
-    @keywords = Keyword.all 
+    @keywords = Keyword.all
 
     if !params[:category].blank?
       @activities = Activity.category_filter(params[:category])
     elsif !params[:state].blank?
       @activities = Activity.state_filter(params[:state])
+    elsif !params[:keyword].blank?
+      binding.pry
+      @activities = Activity.keyword_filter(params[:keyword])
     elsif !params[:distance].blank?
       if params[:distance] == "Greater than 10 miles"
         @activities = Activity.greater_than_ten
