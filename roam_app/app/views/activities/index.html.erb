@@ -5,10 +5,10 @@
 <div>
   <h3>Filter Activities:</h3>
   <%= form_tag("/activities", method: "get") do %>
-    <%= select_tag "category", options_from_collection_for_select(@activities, "id", "category"), include_blank: true %>
-    <%= select_tag "state", options_from_collection_for_select(@activities, "id", "state"), include_blank: true %>
-    <%= select_tag "distance", options_for_select(["Greater than 10 Miles", "5-9.9 miles", "2-4.9 miles", "Less than 2 miles"]), include_blank: true %>
-    <%# <%= select_tag "keyword", options_from_collection_for_select(@activities, "id", "keyword"), include_blank: true %> %>
+    Category:<%= select_tag "category", options_from_collection_for_select(@activities, "id", "category"), include_blank: true %>
+    Keywords: <%= select_tag "keywords", options_from_collection_for_select(@keywords, "id", "name"), include_blank: true %>
+    State: <%= select_tag "state", options_from_collection_for_select(@activities, "id", "state"), include_blank: true %>
+    Distance: <%= select_tag "distance", options_for_select(["Greater than 10 Miles", "5-9.9 miles", "2-4.9 miles", "Less than 2 miles"]), include_blank: true %>
     <%= submit_tag "Filter" %>
   <% end %>
 </div>

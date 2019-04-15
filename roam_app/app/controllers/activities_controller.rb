@@ -50,8 +50,27 @@ class ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all
+    @keywords = Keyword.all 
+
+    if !params[:category].blank?
+      @activities = Activity.category_filter(params[:category])
+    elsif !params[:state].blank?
+      @activities = Activity.state_filter(params[:state])
+    elsif !params[:distance].blank?
+      if params[:distance] == "Greater than 10 miles"
+        @activities = Activity.greater_than_ten
+      elsif params[:distance] == "5-9.9 miles"
+        @activities = Activity.five_to_ten
+      elsif params[:distance] == "2-4.9 miles"
+        @activities = Activity.two_to_five
+      else
+        @activities = Activity.less_than_two
+      end
+    else
+      @activities = Activity.all
+    end
   end
+
 
   def activity_params
     params.require(:activity).permit(

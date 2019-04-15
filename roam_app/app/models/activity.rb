@@ -30,7 +30,7 @@ class Activity < ApplicationRecord
     where("distance >= 2 AND distance < 5")
   end
 
-  def self.greater_than_ten
+  def self.less_than_two
     where("distance < 2")
   end
 
@@ -41,19 +41,13 @@ class Activity < ApplicationRecord
     end
   end
 
-  def comments
-    self.trips.each do |trip|
-     if trip.comment != nil
-       self.comments << trip.comment
-     end
-   end
-   self.comments
-  end
-
-  # <% @activity.trips.each do |trip| %> </h2>
-  #   <ul>
-  #     <li> <%= trip.comment unless trip.comment == nil %> </li>
-  #   </ul>
-  #   <%end%>
+  # def comments
+  #   self.trips.each do |trip|
+  #    if trip.comment != nil
+  #      self.comments << trip.comment
+  #    end
+  #  end
+  #  self.comments
+  # end
 
 end
