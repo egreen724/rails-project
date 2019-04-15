@@ -36,7 +36,6 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
     #check if name already exists in the database?
-    binding.pry
     @activity.update(activity_params)
     redirect_to activity_path(@activity)
   end

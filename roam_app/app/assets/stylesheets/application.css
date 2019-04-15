@@ -13,3 +13,105 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   font-family: sans-serif;
+   text-align: center;
+   margin: auto;
+ }
+
+.navbar-header {
+  width: 100%;
+  float: left;
+  background-color: #333;
+  margin: 0 0 1em 0;
+	padding: 0;
+}
+
+a.navbar-brand {
+  width: auto;
+  color: white;
+  text-decoration: none;
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
+  float: left;
+  padding: 14px 16px;
+}
+
+a.navbar-brand:hover {
+  background-color: #111;
+}
+
+.container {
+  width: 60%;
+  margin: auto;
+}
+
+#most_recent_trip {
+  text-align: left;
+  border: 3px solid #73AD21;
+  padding: 5px;
+  margin: auto;
+  font-size: .5em;
+}
+
+.to_do {
+  text-align: left;
+  float: left;
+  width: 50%;
+}
+
+.past_activities {
+  text-align: left;
+  float: left;
+  width: 50%;
+}
+
+#clear {
+    clear: both;
+}
+
+.form{
+  display: inline-block;
+}
+
+input {
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+input[type=password] {
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.button {
+ display:inline-block;
+ padding:0.35em 1.2em;
+ border:0.1em solid #FFFFFF;
+ margin:0 0.3em 0.3em 0;
+ border-radius:0.12em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:#FFFFFF;
+ text-align:center;
+ transition: all 0.2s;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

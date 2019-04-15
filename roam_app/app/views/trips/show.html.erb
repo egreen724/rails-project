@@ -5,7 +5,7 @@
   <%=link_to "Log a Trip", edit_trip_path(@trip) %>
 <% else %>
   <h3> Date: <%= @trip.date %> </h3>
-  <h3> Time: <%= @trip.time_ellapsed %> </h3>
+  <h3> Time: <%= @trip.time_ellapsed %> minutes </h3>
   <h3> User Comments: <%= @trip.comment %> </h3>
   <%=link_to "Edit Trip Details", edit_trip_path(@trip) %>
 <% end %>

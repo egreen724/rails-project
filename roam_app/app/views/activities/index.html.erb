@@ -1,19 +1,19 @@
 <h1> All Activities </h1>
 
-<%= link_to "Add a new Activity", '/activities/new' %>
+<%= link_to "Add a new Activity", '/activities/new', :class => "button" %>
 
-<div>
+<div class = "filters">
   <h3>Filter Activities:</h3>
   <%= form_tag("/activities", method: "get") do %>
-    Category:<%= select_tag "category", options_for_select([ 'Hike','Kayaking','Bike Ride' ]), include_blank: true %>
-    Keywords: <%= select_tag "keywords", options_from_collection_for_select(@keywords, "id", "name"), include_blank: true %>
-    State: <%= select_tag "state", options_for_select(us_states), include_blank: true %>
-    Distance: <%= select_tag "distance", options_for_select(["Greater than 10 Miles", "5-9.9 miles", "2-4.9 miles", "Less than 2 miles"]), include_blank: true %>
+    Category: <%= select_tag "category", options_for_select([ 'Hike','Kayaking','Bike Ride' ]), include_blank: true %> <br>
+    Keywords: <%= select_tag "keywords", options_from_collection_for_select(@keywords, "id", "name"), include_blank: true %> <br>
+    State: <%= select_tag "state", options_for_select(us_states), include_blank: true %> <br>
+    Distance: <%= select_tag "distance", options_for_select(["Greater than 10 Miles", "5-9.9 miles", "2-4.9 miles", "Less than 2 miles"]), include_blank: true %><br>
     <%= submit_tag "Filter" %>
   <% end %>
 </div>
 
-<table>
+<table id="index">
   <tr>
     <th> Category </th>
     <th> Name </th>
