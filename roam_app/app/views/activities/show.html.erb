@@ -14,12 +14,14 @@
   </ul>
   <%end%>
   <br>
-  <% binding.pry %> 
+  
+  <% unless @activity.trips.length == 0 %>
 <h2> User Comments: <% @activity.comments do |comment| %> </h2>
   <ul>
     <li> <%= comment %> </li>
   </ul>
   <%end%>
+<%end%>
 
 <br>
 <% if @creator == @current_user %>

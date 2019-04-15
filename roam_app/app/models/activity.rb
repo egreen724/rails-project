@@ -41,13 +41,14 @@ class Activity < ApplicationRecord
     end
   end
 
-  # def comments
-  #   self.trips.each do |trip|
-  #    if trip.comment != nil
-  #      self.comments << trip.comment
-  #    end
-  #  end
-  #  self.comments
-  # end
+  def comments
+    if self.trips != []
+      self.trips.each do |trip|
+       if trip.comment != nil
+         self.comments << trip.comment
+       end
+     end
+    end
+  end
 
 end
