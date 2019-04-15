@@ -28,8 +28,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    if @user.trips.last.taken == true
-      @recent_trip = @user.trips.last
+    if @user.trips != []
+      if @user.trips.last.taken == true
+        @recent_trip = @user.trips.last
+      end
     end
   end
 
