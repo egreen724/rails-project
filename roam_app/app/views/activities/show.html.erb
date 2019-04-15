@@ -4,7 +4,7 @@
 
 <%= link_to "Add this Activity to my To Do List", "/trips/new" %>
 
-<h2> Distance: <%= @activity.distance %> </h2> <br>
+<h2> Distance: <%= @activity.distance %> miles </h2> <br>
 <h2> Difficulty Rating: <%= @activity.difficulty_rating %> </h2> <br>
 <h2> Category: <%= @activity.category %> </h2> <br>
 <h2> Number of Past Users: <%= @activity.users.length %> </h2> <br>
@@ -14,9 +14,9 @@
   </ul>
   <%end%>
   <br>
-<h2> User Comments: <% @activity.trips.each do |trip| %> </h2>
-  <ul> 
-    <li> <%= trip.comment unless trip.comment == nil %> </li>
+<h2> User Comments: <% @activity.comments do |comment| %> </h2>
+  <ul>
+    <li> <%= comment %> </li>
   </ul>
   <%end%>
 
