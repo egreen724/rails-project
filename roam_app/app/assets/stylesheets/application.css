@@ -74,17 +74,20 @@ a.navbar-brand:hover {
 
 .form{
   display: inline-block;
+  width: 100%;
 }
 
 input {
-  border: 1px solid grey;
-  border-radius: 4px;
+  border: none;
+  border-bottom: 1px solid grey;
+  margin: 8px 0;
+  width: auto;
 }
 
-input[type=password] {
-  border: 1px solid grey;
-  border-radius: 4px;
-}
+/* input[type=password] {
+  border: none;
+  bottom-border: 1px solid grey
+} */
 
 .button {
  display:inline-block;
