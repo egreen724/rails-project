@@ -1,15 +1,25 @@
 <%= form_for @activity, url: '/activities', method: :post do |f| %>
-  Name: <%= f.text_field :name %> <br>
-  Category: <%= f.select :category, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
-  Distance (in miles): <%= f.text_field :distance %> miles <br>
-  Street Address: <%= f.text_field :street_address %> <br>
-  City: <%= f.text_field :city %> <br>
-  State: <%= f.select :state, options_for_select(us_states) %> <br>
-  Zip Code: <%= f.text_field :zip_code %> <br>
-  Difficulty Rating: <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
-  Parking Available?: <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
-  Keywords: <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name %> <br>
-  New Keyword:
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
+  <%= f.label :category %>
+  <%= f.select :category, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
+  <%= f.label :distance, "Distance (in miles)" %>
+  <%= f.text_field :distance %> <br>
+  <%= f.label :street_address %>
+  <%= f.text_field :street_address %> <br>
+  <%= f.label :city %>
+  <%= f.text_field :city %> <br>
+  <%= f.label :state %>
+  <%= f.select :state, options_for_select(us_states) %> <br>
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %> <br>
+  <%= f.label :difficulty_rating %>
+  <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
+  <%= f.label :parking, "Parking Available?" %>
+  <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
+  <%= f.label :keywords_ids, "Keywords:" %>
+  <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name, :class => "checkbox_labels" %> <br>
+  <%= f.label :keywords, "New Keyword:" %>
     <%= f.fields_for :keywords, activity.keywords.build do |keywords_fields| %>
       <%= keywords_fields.text_field :name %>
     <% end %>

@@ -2,8 +2,10 @@
 
 <div class="form">
 <%= form_for :user, url: '/signin', method: :post do |f| %>
-  Email: <%= f.text_field :email %> <br>
-  Password: <%= f.password_field :password, id: 'password' %> <br>
+  <%= f.label :email %>
+  <%= f.text_field :email %> <br>
+  <%= f.label :password %>
+  <%= f.password_field :password, id: 'password' %> <br>
   <%= f.submit "Sign In" %>
 <% end %>
 </div>

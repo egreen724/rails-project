@@ -1,6 +1,7 @@
 <%= form_for @trip, url: '/trips', method: :post do |f| %>
 <br>
-  Activity Name: <%= f.collection_select :activity_id, Activity.all, :id, :name %> <br>
+  <%= f.label :activity %>
+  <%= f.collection_select :activity_id, Activity.all, :id, :name %> <br>
   <%= f.hidden_field :user_id, :value => @current_user.id %>
   <br>
   <br>
@@ -9,9 +10,12 @@
   <br>
   <br>
   Complete these fields if you are logging a trip: <br>
-    Date (DD/MM/YY): <%= f.text_field :date %> <br>
-    Time (in minutes): <%= f.text_field :time_ellapsed %> <br>
-    User Comments: <%= f.text_field :comment %> <br>
+    <%= f.label :date, "Date (DD/MM/YY):" %>
+    <%= f.text_field :date %> <br>
+    <%= f.label :time_ellapsed, "Time (in minutes)" %>
+    <%= f.text_field :time_ellapsed %> <br>
+    <%= f.label :comment, "User Comments" %>
+    <%= f.text_field :comment %> <br>
 
     <%= f.submit "Submit" %>
   <% end %>

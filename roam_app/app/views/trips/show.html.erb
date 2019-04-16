@@ -2,7 +2,7 @@
 <h2> Activity Name: <%= @trip.activity.name %> </h2>
 <h3> Distance: <%= @trip.activity.distance %> miles</h3>
 <h3> Address: <%= @trip.activity.street_address %>, <%= @trip.activity.state %>  </h3>
-<%binding.pry %>
+
 <% if @trip.taken == false %>
   <%=link_to "Log a Trip", edit_trip_path(@trip) %>
 <% else %>

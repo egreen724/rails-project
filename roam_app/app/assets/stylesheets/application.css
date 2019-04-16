@@ -77,17 +77,88 @@ a.navbar-brand:hover {
   width: 100%;
 }
 
+
 input {
+  font-size: 14px;
+  height: 30px;
+  padding: 5px 10px 5px 5px;
+  display: block;
+  width: 100%;
   border: none;
-  border-bottom: 1px solid grey;
-  margin: 8px 0;
-  width: auto;
+  outline: none;
+  border-bottom: 1px solid #B1B1B1;
+  color: #666666;
+  background: rgba(0,0,0,0);
+  opacity: 0.5;
+  transition: 0.2s ease;
 }
 
-/* input[type=password] {
+input:focus {
+  outline: none;
+  opacity: 1;
+}
+
+input[type=submit] {
   border: none;
-  bottom-border: 1px solid grey
-} */
+  outline: none;
+  color: #666666;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+input[type=checkbox] {
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+}
+
+select {
+  font-size: 14px;
+  height: 30px;
+  padding: 5px 10px 5px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #666666;
+  background: rgba(0,0,0,0);
+  opacity: 0.5;
+  transition: 0.2s ease;
+}
+
+label {
+  color: #666666;
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: normal;
+  /* position: absolute; */
+  pointer-events: none;
+  left: 5px;
+  top: 15px;
+  opacity: 0.5;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.checkbox_labels {
+    display: inline-block;
+    float: left;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top: -10px;
+  font-size: 14px;
+  color: #666666;
+  opacity: 1;
+}
+
 
 a.button {
  background-color: green;
