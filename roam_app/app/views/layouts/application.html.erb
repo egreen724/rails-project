@@ -11,6 +11,8 @@
 
   <body>
 
+  <img id = "logo" src="/assets/Roam.png" />
+
   <div class="navbar-header">
     <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
     <a class="navbar-brand" href="<%= '/users/new' %>"/>Sign Up</a>
@@ -21,6 +23,7 @@
     <% end %>
     <a class="navbar-brand" href="<%= '/logout' %>"/>Log Out</a>
   </div>
+  <br>
 
   <div class="container">
     <%= yield %>
