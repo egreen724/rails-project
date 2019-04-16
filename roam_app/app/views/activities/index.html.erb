@@ -17,7 +17,7 @@
   <tr>
     <th> Category </th>
     <th> Name </th>
-    <th> More Info </th>
+    <th> Distance </th>
     <th>  </th>
     <th>  </th>
   </tr>
@@ -25,9 +25,9 @@
   <tr> <% @activities.each do |activity| %>
     <td> <%= activity.category %> </td>
     <td> <%= activity.name %></td>
+    <td> <%= activity.distance %> miles</td>
     <td> <%= link_to "More details...", "/activities/#{activity.id}" %> </td>
-    <td> <%= link_to "Log a Trip", "/trips/new" %> </td>
-    <td> <%= link_to "Add to my To Do List", "/trips/new" %> </td>
+    <td> <%= link_to "Add this Activity", "/trips/new" %> </td>
   </tr> <br>
     <% end %>
 

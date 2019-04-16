@@ -89,19 +89,16 @@ input {
   bottom-border: 1px solid grey
 } */
 
-.button {
- display:inline-block;
- padding:0.35em 1.2em;
- border:0.1em solid #FFFFFF;
- margin:0 0.3em 0.3em 0;
- border-radius:0.12em;
- box-sizing: border-box;
- text-decoration:none;
- font-family:'Roboto',sans-serif;
- font-weight:300;
- color:#FFFFFF;
- text-align:center;
- transition: all 0.2s;
+a.button {
+ background-color: green;
+ color: white;
+ padding: 14px 25px;
+ margin: 10px;
+ text-align: center;
+ border-radius: 2px;
+ text-decoration: none;
+ font-weight: 300;
+ text-align: center;
 }
 
 table {

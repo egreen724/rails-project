@@ -46,6 +46,7 @@ class Activity < ApplicationRecord
   end
 
   def comments
+    binding.pry 
     if self.trips != []
       self.trips.each do |trip|
        if trip.comment != nil
