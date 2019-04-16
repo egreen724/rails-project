@@ -13,10 +13,10 @@
   <h2>Most Recent Trip: </h2>
   <h3>Name:<%= @recent_trip.activity.name %></h3>
   <h3>Distance:<%= @recent_trip.activity.distance %> miles </h3>
-  <h3>Time:<%= @recent_trip.time_ellapsed %> minutes</h3>
-  <h3>Date:<%= @recent_trip.date %></h3>
-  <h3>Category:<%= @recent_trip.activity.category %></h3>
-  <h3>Keywords:<% @recent_trip.activity.keywords.each do |keyword| %>
+  <h3>Time: <%= to_hours(@recent_trip.time_ellapsed) %> </h3>
+  <h3>Date: <%= @recent_trip.date %></h3>
+  <h3>Category: <%= @recent_trip.activity.category %></h3>
+  <h3>Keywords: <% @recent_trip.activity.keywords.each do |keyword| %>
     <%= keyword.name %>
     <% end %>
   </h3>

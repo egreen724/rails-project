@@ -2,12 +2,13 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :activity
 
-  def mins_to_hours(minutes)
+  def to_hours(minutes)
     if minutes > 60
-      minutes/60
+     time = "#{minutes/60} hours"
     else
-      minutes
+     time = "#{minutes} minutes"
     end
+    time
   end
 
 end
