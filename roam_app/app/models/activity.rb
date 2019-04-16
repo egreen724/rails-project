@@ -46,14 +46,15 @@ class Activity < ApplicationRecord
   end
 
   def comments
-    binding.pry 
+    all = []
+
     if self.trips != []
-      self.trips.each do |trip|
-       if trip.comment != nil
-         self.comments << trip.comment
+      self.trips.collect do |trip|
+        all << trip.comment
        end
-     end
-    end
+     all.reject! {|item| item.nil? || item == "" }
+   end
+   all
   end
 
 end
