@@ -61,12 +61,22 @@ a.navbar-brand:hover {
   margin: auto;
 }
 
+.info {
+  text-align: left;
+  border: 1px solid grey;
+  padding: 2px;
+  margin: auto;
+  font-size: .75em;
+}
+
 #most_recent_trip {
   text-align: left;
-  border: 3px solid #73AD21;
+  border: 1px solid black;
   padding: 5px;
+  color: white;
+  background-color: grey;
   margin: auto;
-  font-size: .5em;
+  font-size: .75em;
 }
 
 .to_do {
@@ -172,7 +182,6 @@ input:focus ~ label, input:valid ~ label 		{
   opacity: 1;
 }
 
-
 a.button {
  color: black;
  padding: 14px 25px;
@@ -197,4 +206,21 @@ th, td {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+li {
+  text-align: left;
+}
+
+footer {
+  color: white;
+  text-align: center;
+  font-size: .25 em;
+  background-color: grey;
+  height: 35px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding; 20px 0 10px 0;
+
 }
