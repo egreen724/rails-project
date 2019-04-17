@@ -11,6 +11,14 @@ class TripsController < ApplicationController
 
   end
 
+  def index
+    if params[:user_id]
+      @trips = User.find_by(id: params[:user_id]).trips
+    else
+      @trips = Trip.all
+    end
+  end
+
   def show
     @trip = Trip.find(params[:id])
   end

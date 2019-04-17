@@ -1,0 +1,7 @@
+<h3>All Your Trips: </h3>
+
+<% @trips.each do |trip| %>
+<ul>
+  <li> <%= link_to "#{trip.activity_id.name}", user_trip %>, <%if trip.taken == true %> Past Trip <%else %> To Do List <%end%>  </li>
+</ul>
+<%end%>

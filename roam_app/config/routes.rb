@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :keywords
   resources :trips
   resources :activities
-  resources :users
+  resources :users do
+    resources :trips, only: [:show, :index]
+  end
+
 
   root 'users#home'
 

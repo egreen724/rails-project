@@ -13,7 +13,7 @@
   <h2>Most Recent Trip: </h2>
   <h3>Name:<%= @recent_trip.activity.name %></h3>
   <h3>Distance:<%= @recent_trip.activity.distance %> miles </h3>
-  <h3>Time: <%= to_hours(@recent_trip.time_ellapsed).to_s %> </h3>
+  <h3>Time: <%= @recent_trip.to_hours %> </h3>
   <h3>Date: <%= @recent_trip.date %></h3>
   <h3>Category: <%= @recent_trip.activity.category %></h3>
   <h3>Keywords: <% @recent_trip.activity.keywords.each do |keyword| %>
@@ -47,5 +47,5 @@
   <div id="clear"></div>
 </div>
 
-
+<%= link_to "See All Trips", user_trips_path(@user) %> <br>
 <%= link_to "Edit Your Profile", edit_user_path(@user), class: "button" %> <br>
