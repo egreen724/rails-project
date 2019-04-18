@@ -1,8 +1,13 @@
 class TripsController < ApplicationController
 
   def new
-    @trip = Trip.new
-    @current_user = current_user
+    if params[:activity_id]
+      @trip = Trip.new(activity_id: params[:activity_id] )
+      @current_user = current_user
+    else
+      @trip = Trip.new
+      @current_user = current_user
+    end
   end
 
   def create
@@ -12,8 +17,9 @@ class TripsController < ApplicationController
   end
 
   def index
-    if params[:user_id]
-      @trips = User.find_by(id: params[:user_id]).trips
+    if params[:activity_id]
+      @activity = Activity.find_by(id: params[:activity_id])
+      @trips = @activity.trips
     else
       @trips = Trip.all
     end

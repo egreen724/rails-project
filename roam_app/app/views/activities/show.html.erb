@@ -2,7 +2,8 @@
 
 <!-- map image? -->
 
-<%= link_to "Add this Activity to my To Do List", "/trips/new" %>
+<%= link_to "Add this Activity to my To Do List", new_activity_trip_path(@activity.id) %>
+<br>
 <br>
 <div class="info">
 <h2> Distance: <%= @activity.distance %> miles </h2>
@@ -14,16 +15,17 @@
     <li> <%= keyword.name %> </li>
   </ul>
   <%end%>
-  <br>
 
   <% unless @activity.trips.length == 0 %>
 <h2> User Comments: <% @activity.comments.each do |comment| %> </h2>
   <ul>
     <li> <%= comment %> </li>
   </ul>
+    <%end%>
   <%end%>
-<%end%>
 </div>
+<br>
+<%= link_to "See all past trips for this Activity", activity_trips_path(@activity.id) %>
 
 <br>
 <% if @creator == @current_user %>

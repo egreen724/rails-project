@@ -1,7 +1,11 @@
-<h3>All Your Trips: </h3>
+<h3>All Past Trips for <%=@activity.name%>: </h3>
 
 <% @trips.each do |trip| %>
-<ul>
-  <li> <%= link_to "#{trip.activity.name}", user_trip_path(trip.user_id, trip.id) %>, <%if trip.taken == true %> Past Trip <%else %> To Do List <%end%>  </li>
-</ul>
+  <% if trip.taken == true %>
+  <ul><%= link_to trip.user.name, user_path(trip.user_id)%>
+    <li> <%= trip.date %></li>
+    <li> <%= trip.to_hours %></li>
+    <li> <%= link_to "More Trip Details", activity_trip_path(trip.activity_id, trip.id) %> </li>
+  </ul>
+  <%end%>
 <%end%>

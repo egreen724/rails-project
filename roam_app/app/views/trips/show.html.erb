@@ -1,13 +1,17 @@
 
 <h2> Activity Name: <%= @trip.activity.name %> </h2>
+
+<div class="info">
 <h3> Distance: <%= @trip.activity.distance %> miles</h3>
 <h3> Address: <%= @trip.activity.street_address %>, <%= @trip.activity.state %>  </h3>
 
 <% if @trip.taken == false %>
   <%=link_to "Log a Trip", edit_trip_path(@trip) %>
 <% else %>
+  <h2> <%= @trip.user.name %>'s Trip:</h2>
   <h3> Date: <%= @trip.date %> </h3>
   <h3> Time: <%= @trip.to_hours %> </h3>
   <h3> User Comments: <%= @trip.comment %> </h3>
   <%=link_to "Edit Trip Details", edit_trip_path(@trip) %>
 <% end %>
+</div>

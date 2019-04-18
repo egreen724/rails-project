@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :activity_keywords
   resources :keywords
   resources :trips
-  resources :activities
+
+  resources :activities do
+    resources :trips, only: [:new, :show, :index]
+  end
+
   resources :users do
     resources :trips, only: [:show, :index]
   end

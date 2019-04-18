@@ -27,7 +27,7 @@
     <td> <%= activity.name %></td>
     <td> <%= activity.distance %> miles</td>
     <td> <%= link_to "More details...", "/activities/#{activity.id}" %> </td>
-    <td> <%= link_to "Add this Activity", "/trips/new" %> </td>
+    <td> <%= link_to "Add this Activity", new_activity_trip_path(activity.id) %> </td>
   </tr> <br>
     <% end %>
 
