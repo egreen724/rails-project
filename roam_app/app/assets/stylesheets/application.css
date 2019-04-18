@@ -98,6 +98,7 @@ a.navbar-brand:hover {
 .form{
   display: inline-block;
   width: 100%;
+  text-align: left;
 }
 
 
@@ -110,7 +111,7 @@ input {
   border: none;
   outline: none;
   border-bottom: 1px solid #B1B1B1;
-  color: #666666;
+  color: black;
   background: rgba(0,0,0,0);
   opacity: 0.5;
   transition: 0.2s ease;
@@ -124,14 +125,14 @@ input:focus {
 input[type=submit] {
   border: none;
   outline: none;
-  color: #666666;
+  color: black;
   font-size: 16px;
   font-weight: bold;
   margin: 10px;
 }
 
 input[type=checkbox] {
-  color: #666666;
+  color: black;
   font-size: 14px;
   font-weight: bold;
   display: inline-block;
@@ -147,14 +148,14 @@ select {
   width: 100%;
   border: none;
   outline: none;
-  color: #666666;
+  color: black;
   background: rgba(0,0,0,0);
   opacity: 0.5;
   transition: 0.2s ease;
 }
 
 label {
-  color: #666666;
+  color: black;
   display: block;
   text-align: left;
   font-size: 14px;
@@ -178,11 +179,11 @@ label {
 input:focus ~ label, input:valid ~ label 		{
   top: -10px;
   font-size: 14px;
-  color: #666666;
+  color: black;
   opacity: 1;
 }
 
-a.button {
+.button {
  color: black;
  padding: 14px 25px;
  margin: 10px;

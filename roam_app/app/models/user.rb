@@ -17,5 +17,12 @@ class User < ApplicationRecord
       user.email = auth.info.email
     end
   end
-  
+
+  def sorted_by_date
+    if self.trips != []
+      with_dates = self.trips.reject {|trip| trip.date.nil?}
+      with_dates.sort_by {|trip| trip.date}
+    end
+  end
+
 end

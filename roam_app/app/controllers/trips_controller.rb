@@ -26,7 +26,8 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find_by(id: params[:id])
+    @current_user = current_user
   end
 
   def edit
@@ -38,6 +39,13 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)
     redirect_to ("/trips/#{@trip.id}")
+  end
+
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.delete
+
+    redirect_to user_path(current_user)
   end
 
   def trip_params

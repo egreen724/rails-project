@@ -11,6 +11,6 @@ class Trip < ApplicationRecord
       end
       time
     end
-  end 
+  end
 
 end

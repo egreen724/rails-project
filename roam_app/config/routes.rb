@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :trips
 
   resources :activities do
-    resources :trips, only: [:new, :show, :index]
+    resources :trips, only: [:new, :show, :index, :destroy]
   end
 
   resources :users do
@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  get '/trip/:id/delete' => 'trips#destroy'
+  
 
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/')
