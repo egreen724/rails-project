@@ -1,21 +1,2 @@
 <h2> Edit Activity </h2>
-
-<%= form_for @activity do |f| %>
-  Name: <%= f.text_field :name %> <br>
-  Category: <%= f.select :category, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
-  Distance (in miles): <%= f.text_field :distance %> miles <br>
-  Street Address: <%= f.text_field :street_address %> <br>
-  City: <%= f.text_field :city %> <br>
-  State: <%= f.select :state, options_for_select(us_states) %> <br>
-  Zip Code: <%= f.text_field :zip_code %> <br>
-  Difficulty Rating: <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
-  Parking Available?: <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
-  Keywords: <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name %> <br>
-  New Keyword:
-    <%= f.fields_for :keywords, @activity.keywords.build do |keywords_fields| %>
-      <%= keywords_fields.text_field :name %>
-    <% end %>
-  <%= f.hidden_field :creator_id, :value => "#{@user.id}"%>
-    <br>
-  <%= f.submit "Submit" %>
-  <% end %>
+<%= render 'form'%>

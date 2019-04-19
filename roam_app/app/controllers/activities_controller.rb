@@ -35,7 +35,6 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    #check if name already exists in the database?
     @activity.update(activity_params)
     redirect_to activity_path(@activity)
   end
@@ -47,9 +46,8 @@ class ActivitiesController < ApplicationController
       @activities = Activity.category_filter(params[:category])
     elsif !params[:state].blank?
       @activities = Activity.state_filter(params[:state])
-    elsif !params[:keyword].blank?
-      binding.pry
-      @activities = Activity.keyword_filter(params[:keyword])
+    elsif !params[:keywords].blank?
+      @activities = Activity.keyword_filter(params[:keywords])
     elsif !params[:distance].blank?
       if params[:distance] == "Greater than 10 miles"
         @activities = Activity.greater_than_ten

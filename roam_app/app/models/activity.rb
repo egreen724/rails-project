@@ -15,7 +15,8 @@ class Activity < ApplicationRecord
   end
 
   def self.keyword_filter(keyword_input)
-    includes(keywords: :names).where(names: keyword_input)
+    Activity.joins(:keywords).where("keyword_id = ?", keyword_input)
+    #includes(keywords: :id).where(id: keyword_input)
   end
 
   def self.category_filter(category_input)

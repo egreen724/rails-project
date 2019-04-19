@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :trips, only: [:new, :show, :index, :destroy]
   end
 
+  patch 'activities/:id', to: 'activities#update'
+
   resources :users do
     resources :trips, only: [:show, :index]
   end
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/trip/:id/delete' => 'trips#destroy'
-  
+
 
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/')

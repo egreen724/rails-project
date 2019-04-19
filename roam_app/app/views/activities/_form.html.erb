@@ -1,4 +1,4 @@
-<%= form_for @activity, url: '/activities', method: :post do |f| %>
+<%= form_for @activity do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %> <br>
   <%= f.label :category %>
@@ -20,7 +20,7 @@
   <%= f.label :keywords_ids, "Keywords:" %>
   <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name, :class => "checkbox_labels" %> <br>
   <%= f.label :keywords, "New Keyword:" %>
-    <%= f.fields_for :keywords, activity.keywords.build do |keywords_fields| %>
+    <%= f.fields_for :keywords, @activity.keywords.build do |keywords_fields| %>
       <%= keywords_fields.text_field :name %>
     <% end %>
   <%= f.hidden_field :creator_id, :value => "#{@user.id}"%>
