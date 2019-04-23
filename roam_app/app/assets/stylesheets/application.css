@@ -18,6 +18,7 @@
    font-family: Lato;
    text-align: center;
    margin: auto;
+   position: relative;
  }
 
  #logo {
@@ -181,6 +182,7 @@ label {
 .checkbox_labels {
     display: inline-block;
     float: left;
+    font-weight: bold;
 }
 
 /* active state */
@@ -214,6 +216,7 @@ a.button {
  	font-size:15px;
  	font-weight:bold;
  	padding:13px 24px;
+  margin: 5px;
  	text-decoration:none;
  	text-shadow:0px 1px 0px #ffffff;
 }
@@ -252,15 +255,24 @@ li {
   text-align: left;
 }
 
-footer {
-  color: white;
+.footer {
+  /* color: white;
   text-align: center;
   font-size: .25 em;
   background-color: grey;
   height: 35px;
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  padding; 20px 0 10px 0;
+  right: 0;
+  left: 0;
+  padding; 1rem; */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 
 }
