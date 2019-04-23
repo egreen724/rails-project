@@ -13,17 +13,17 @@ This project allowed me to expand my knowledge of Rails through complex object r
 
 ## Technologies
 
-Rails 5.2.3
-Ruby 2.5.1
-sqlite3
-ActiveRecord
+-Rails 5.2.3
+-Ruby 2.5.1
+-sqlite3
+-ActiveRecord
 
 
 ## Setup
 
 1. Ensure that your system is running the correct versions of Rails and Ruby.
 2. Clone into the repository and change directories into "roam_app".
-3. Run "rails server" to open the app in your browser. 
+3. Run "rails server" to open the app in your browser.
 
 ## Illustrations
 
