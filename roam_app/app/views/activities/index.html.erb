@@ -2,7 +2,7 @@
 
 <%= link_to "Add a new Activity", '/activities/new', :class => "button" %>
 
-<div class = "filters">
+<div class= "filters">
   <h3>Filter Activities:</h3>
   <%= form_tag("/activities", method: "get") do %>
     <%= label_tag 'By category:' %>
@@ -17,6 +17,7 @@
   <% end %>
 </div>
 
+<div class="tabe">
 <table id="index">
   <tr>
     <th> Category </th>
@@ -34,6 +35,7 @@
     <td> <%= link_to "Add this Activity", new_activity_trip_path(activity.id) %> </td>
   </tr> <br>
     <% end %>
-
   <% end %>
 </table>
+</div>
+<br>

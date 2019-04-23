@@ -1,7 +1,7 @@
 <%= form_for @activity do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %> <br>
-  <%= f.label :category %>
+  <%= f.label "Category:" %>
   <%= f.select :category, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
   <%= f.label :distance, "Distance (in miles)" %>
   <%= f.text_field :distance %> <br>
@@ -17,8 +17,10 @@
   <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
   <%= f.label :parking, "Parking Available?" %>
   <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
-  <%= f.label :keywords_ids, "Keywords:" %>
+  <%= f.label :keywords_ids, "Keywords:" %> <br>
+  <div class="checkbox">
   <%= f.collection_check_boxes :keyword_ids, Keyword.all, :id, :name, :class => "checkbox_labels" %> <br>
+  </div>
   <%= f.label :keywords, "New Keyword:" %>
     <%= f.fields_for :keywords, @activity.keywords.build do |keywords_fields| %>
       <%= keywords_fields.text_field :name %>

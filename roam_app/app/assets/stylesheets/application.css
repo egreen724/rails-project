@@ -12,12 +12,19 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
  body {
    font-family: Lato;
    text-align: center;
-   margin: auto;
+   margin: 0;
+   min-height: 100%;
+   padding-bottom: 2rem;
    position: relative;
  }
 
@@ -36,8 +43,9 @@
    height: 100%;
    width: 100%;
    color: white;
+   margin-bottom: 2rem;
+   display: block;
  }
-
 
 .navbar-header {
   width: 100%;
@@ -124,6 +132,7 @@ input {
   background: rgba(0,0,0,0);
   opacity: 0.5;
   transition: 0.2s ease;
+
 }
 
 input:focus {
@@ -155,13 +164,19 @@ select {
   padding: 5px 10px 5px 5px;
   display: block;
   width: 100%;
-  border: none;
-  outline: none;
+  border: 1px;
+  outline: 1px;
   color: black;
   background: rgba(0,0,0,0);
   opacity: 0.5;
   transition: 0.2s ease;
 }
+
+/* .checkbox {
+  float: left;
+  display: inline-grid;
+  margin: auto;
+} */
 
 label {
   color: black;
@@ -180,18 +195,20 @@ label {
 }
 
 .checkbox_labels {
-    display: inline-block;
+    display: block;
     float: left;
-    font-weight: bold;
-}
+  }
+
+
+
 
 /* active state */
-input:focus ~ label, input:valid ~ label 		{
+/* input:focus ~ label, input:valid ~ label 		{
   top: -10px;
   font-size: 14px;
   color: black;
   opacity: 1;
-}
+} */
 
 a.button {
   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -271,7 +288,7 @@ li {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  margin-top: 1rem;
   background-color: #efefef;
   text-align: center;
 
