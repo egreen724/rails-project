@@ -1,15 +1,17 @@
+*Required fields
+
 <%= form_for @activity do |f| %>
-  <%= f.label :name %>
+  <%= f.label "* Name" %>
   <%= f.text_field :name %> <br>
   <%= f.label "Category:" %>
   <%= f.select :category, [ 'Hike','Kayaking','Bike Ride' ] %> <br>
-  <%= f.label :distance, "Distance (in miles)" %>
+  <%= f.label :distance, "* Distance (in miles)" %>
   <%= f.text_field :distance %> <br>
   <%= f.label :street_address %>
   <%= f.text_field :street_address %> <br>
   <%= f.label :city %>
   <%= f.text_field :city %> <br>
-  <%= f.label :state %>
+  <%= f.label "* State" %>
   <%= f.select :state, options_for_select(us_states) %> <br>
   <%= f.label :zip_code %>
   <%= f.text_field :zip_code %> <br>

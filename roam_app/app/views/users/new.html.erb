@@ -1,17 +1,20 @@
 <h1> Sign Up </h1>
+
+  *Required fields
+  
 <div class="form">
 <%= form_for :user, url: '/users', method: :post do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %> <br>
-  <%= f.label :email, 'Email' %>
+  <%= f.label :email, '*Email' %>
   <%= f.text_field :email %> <br>
   <%= f.label :age, 'Age' %>
   <%= f.text_field :age %> <br>
   <%= f.label :bio, 'Bio' %>
   <%= f.text_field :bio %> <br>
-  <%= f.label :password, 'Password' %>
+  <%= f.label :password, '*Password' %>
   <%= f.password_field :password %> <br>
-  <%= f.label :password_confirmation, 'Password Confirmation' %>
+  <%= f.label :password_confirmation, '*Password Confirmation' %>
   <%= f.password_field :password_confirmation %> <br>
   <%= f.submit "Sign Up" %>
 <% end %>
