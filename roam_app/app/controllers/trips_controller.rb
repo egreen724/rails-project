@@ -17,7 +17,7 @@ class TripsController < ApplicationController
       @trip = Trip.create(trip_params)
       redirect_to ("/trips/#{@trip.id}")
     else
-      flash[:notice] = "Please complete the form with valid entries."
+      flash[:notice] = "Please enter a valid time."
       redirect_to(controller: 'trips', action: 'new')
     end
   end
