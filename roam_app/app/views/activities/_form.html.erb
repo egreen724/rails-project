@@ -16,7 +16,7 @@
   <%= f.label :zip_code %>
   <%= f.text_field :zip_code %> <br>
   <%= f.label :difficulty_rating %>
-  <%= f.select :difficulty_rating, [ '1','2','3','4','5' ] %> <br>
+  <%= f.select :difficulty_rating, [["1: Easy", 1], ["2:Easy to Moderate", 2], ["3: Moderate", 3], ["4: Moderate to Difficult", 4],["5: Difficult", 5]] %> <br>
   <%= f.label :parking, "Parking Available?" %>
   <%= f.select :parking, [["Yes", true], ["No", false]]%> <br>
   <%= f.label :keywords_ids, "Keywords:" %> <br>
