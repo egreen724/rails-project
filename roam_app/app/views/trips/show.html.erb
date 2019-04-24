@@ -7,7 +7,7 @@
 <h3> Address: <%= @trip.activity.street_address %>, <%= @trip.activity.state %>  </h3>
 
 <% if @trip.taken == false %>
-  <%=link_to "Log a Trip", edit_trip_path(@trip) %>
+  <%=link_to "Log a Trip", edit_trip_path(@trip), class: "button" %>
 <% else %>
   <h2> <%= @trip.user.name %>'s Trip:</h2>
   <h3> Date: <%= @trip.date %> </h3>
@@ -16,8 +16,10 @@
 <% end %>
 </div>
 
+<% if @trip.taken == true && @trip.user == @current_user %>
+  <%=link_to "Edit Trip Details", edit_trip_path(@trip), class: "button" %>
+<% end %>
+<br>
 <% if @trip.user == @current_user %>
-  <%=link_to "Edit Trip Details", edit_trip_path(@trip) %>
-  <br>
-  <%=link_to "Delete Trip", "/trip/#{@trip.id}/delete" %>
+  <%=link_to "Delete Trip", "/trip/#{@trip.id}/delete", class: "button" %>
 <% end %>

@@ -11,9 +11,15 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.create(trip_params)
-    redirect_to ("/trips/#{@trip.id}") #add nested routes
+    trip = Trip.new(trip_params)
 
+    if trip.save
+      @trip = Trip.create(trip_params)
+      redirect_to ("/trips/#{@trip.id}")
+    else
+      flash[:notice] = "Please complete the form with valid entries."
+      redirect_to(controller: 'trips', action: 'new')
+    end
   end
 
   def index

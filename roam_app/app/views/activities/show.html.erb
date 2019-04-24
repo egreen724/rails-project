@@ -2,8 +2,8 @@
 
 <!-- map image? -->
 
-<%= link_to "Add this Activity to my To Do List", new_activity_trip_path(@activity.id) %> <br>
-<%= link_to "See all past users' trips for this Activity", activity_trips_path(@activity.id) %>
+<%= link_to "Add this Activity to my To Do List", new_activity_trip_path(@activity.id), class: "button" %> <br>
+<%= link_to "See all past Users' Trips for this Activity", activity_trips_path(@activity.id), class: "button" %>
 
 <br>
 <br>
@@ -28,5 +28,5 @@
 </div>
 <br>
 <% if @creator == @current_user %>
-  <%= link_to "Edit this Activity", edit_activity_path(@activity) %>
+  <%= link_to "Edit this Activity", edit_activity_path(@activity), class: "button" %>
 <% end %>

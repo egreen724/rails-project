@@ -8,6 +8,7 @@ class Activity < ApplicationRecord
 
   validates :distance, presence: true, :numericality => { :greater_than_or_equal_to => 0}
   validates :state, presence: true
+  validates :zip_code, numericality: true 
 
 
   def self.state_filter(state_input)

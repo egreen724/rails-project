@@ -118,7 +118,6 @@ a.navbar-brand:hover {
   text-align: left;
 }
 
-
 input {
   font-size: 14px;
   height: 30px;
@@ -141,12 +140,13 @@ input:focus {
 }
 
 input[type=submit] {
-  border: none;
-  outline: none;
+  border: 1px solid #B1B1B1;
+  outline: inherit;
   color: black;
   font-size: 16px;
   font-weight: bold;
-  margin: 10px;
+  margin: auto;
+  width: 50%;
 }
 
 input[type=checkbox] {
@@ -164,7 +164,7 @@ select {
   padding: 5px 10px 5px 5px;
   display: block;
   width: 100%;
-  border: 1px;
+  border: 1px solid #B1B1B1;
   outline: 1px;
   color: black;
   background: rgba(0,0,0,0);
@@ -256,6 +256,10 @@ a.button {
 table {
   width: 100%;
   border-collapse: collapse;
+}
+
+#index {
+  position: relative;
 }
 
 th, td {

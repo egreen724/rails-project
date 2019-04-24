@@ -1,7 +1,3 @@
-<h1> All Activities </h1>
-
-<%= link_to "Add a new Activity", '/activities/new', :class => "button" %>
-
 <div class= "filters">
   <h3>Filter Activities:</h3>
   <%= form_tag("/activities", method: "get") do %>
@@ -17,7 +13,10 @@
   <% end %>
 </div>
 
-<div class="tabe">
+<h1> All Activities </h1>
+
+<%= link_to "Add a new Activity", '/activities/new', :class => "button" %>
+<div class="table">
 <table id="index">
   <tr>
     <th> Category </th>

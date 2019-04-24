@@ -17,11 +17,11 @@
 <% end %>
 </div>
 
-<!-- Add facebook and google sign in  -->
-<br>
-<br>
-<%= link_to "Sign Up with your Google Account", '/auth/google_oauth2' %>
-
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
+
+<!-- Add facebook and google sign in  -->
+<br>
+<br>
+<%= link_to "Sign Up with your Google Account", '/auth/google_oauth2', class: 'button'  %>
