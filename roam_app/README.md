@@ -27,5 +27,5 @@ This project allowed me to expand my knowledge of Rails through complex object r
 
 ## Illustrations
 
-![Homepage Screenshot](https://drive.google.com/file/d/15kJN5aBxUp__Wy_S3utrqxszeNGp_VO1/view?usp=sharing)
+![Homepage Screenshot](https://drive.google.com/file/d/15kJN5aBxUp__Wy_S3utrqxszeNGp_VO1/view)
 ![ERD](https://drive.google.com/file/d/1WvLHa9wKmgFB8kiKzuYlY05Fn97taYxs/view?usp=sharing)
