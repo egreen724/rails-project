@@ -9,7 +9,7 @@ class Activity < ApplicationRecord
   validates :distance, presence: true, :numericality => { :greater_than_or_equal_to => 0}
   validates :state, presence: true
   validates :zip_code, numericality: true
-  validates :name, presence: true 
+  validates :name, presence: true
 
   def self.state_filter(state_input)
     where(state: state_input)
@@ -62,6 +62,28 @@ class Activity < ApplicationRecord
   def keyword_name_blank(attributes)
     attributes.all? do |key, value|
       key == '_destroy' || value.blank? || value.is_a?(Hash) && all_blank?(value)
+    end
+  end
+
+  def self.filtered_activities(params)
+    if !params[:category].blank?
+      Activity.category_filter(params[:category])
+    elsif !params[:state].blank?
+      Activity.state_filter(params[:state])
+    elsif !params[:keywords].blank?
+      Activity.keyword_filter(params[:keywords])
+    elsif !params[:distance].blank?
+      if params[:distance] == "Greater than 10 miles"
+        Activity.greater_than_ten
+      elsif params[:distance] == "5-9.9 miles"
+        Activity.five_to_ten
+      elsif params[:distance] == "2-4.9 miles"
+        Activity.two_to_five
+      else
+        Activity.less_than_two
+      end
+    else
+      Activity.all
     end
   end
 

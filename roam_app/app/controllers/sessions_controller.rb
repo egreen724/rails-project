@@ -12,9 +12,10 @@ class SessionsController < ApplicationController
      flash[:notice] = "Please enter a valid password or Sign Up to create an account."
      redirect_to(controller: 'sessions', action: 'new')
    else
-     @user.authenticate(params[:user][:password])
+     if @user.authenticate(params[:user][:password])
      session[:user_id] = @user.id
      redirect_to ("/users/#{@user.id}")
+    end
    end
  end
 

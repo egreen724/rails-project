@@ -11,12 +11,11 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip = Trip.new(trip_params)
+    @trip = Trip.new(trip_params)
 
-    if trip.save
-      @trip = Trip.create(trip_params)
+    if @trip.save
       redirect_to ("/trips/#{@trip.id}")
-    else
+    else #use errors hash instead of flash and render page
       flash[:notice] = "Please complete the form with valid entries."
       redirect_to(controller: 'trips', action: 'new')
     end
