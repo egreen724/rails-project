@@ -4,11 +4,11 @@ class Activity < ApplicationRecord
   belongs_to :creator, class_name: :User, foreign_key: :creator_id
   has_many :activity_keywords
   has_many :keywords, through: :activity_keywords
-  accepts_nested_attributes_for :keywords
+  accepts_nested_attributes_for :keywords, reject_if: :keyword_name_blank
 
   validates :distance, presence: true, :numericality => { :greater_than_or_equal_to => 0}
   validates :state, presence: true
-  validates :zip_code, numericality: true 
+  validates :zip_code, numericality: true
 
 
   def self.state_filter(state_input)
@@ -43,7 +43,7 @@ class Activity < ApplicationRecord
   def keywords_attributes=(keyword_attributes)
     keyword_attributes.values.each do |keyword_attribute|
       keyword = Keyword.find_or_create_by(keyword_attribute)
-      self.keywords << keyword
+      self.keywords << keyword unless keyword_name_blank(keyword_attribute)
     end
   end
 
@@ -57,6 +57,12 @@ class Activity < ApplicationRecord
      all.reject! {|item| item.nil? || item == "" }
    end
    all
+  end
+
+  def keyword_name_blank(attributes)
+    attributes.all? do |key, value|
+      key == '_destroy' || value.blank? || value.is_a?(Hash) && all_blank?(value)
+    end
   end
 
 end

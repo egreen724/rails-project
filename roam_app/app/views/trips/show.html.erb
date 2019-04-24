@@ -16,6 +16,9 @@
 <% end %>
 </div>
 
+<%= link_to "See similar Trips taken by other Users", activity_trips_path(@trip.activity.id), class: "button" %>
+
+
 <% if @trip.taken == true && @trip.user == @current_user %>
   <%=link_to "Edit Trip Details", edit_trip_path(@trip), class: "button" %>
 <% end %>

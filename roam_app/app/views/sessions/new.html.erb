@@ -13,3 +13,5 @@
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
+
+  <%= link_to "Sign Up with your Google Account", '/auth/google_oauth2', class: 'button'  %>

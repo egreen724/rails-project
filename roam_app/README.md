@@ -13,10 +13,10 @@ This project allowed me to expand my knowledge of Rails through complex object r
 
 ## Technologies
 
--Rails 5.2.3
--Ruby 2.5.1
--sqlite3
--ActiveRecord
+* Rails 5.2.3
+* Ruby 2.5.1
+* sqlite3
+* ActiveRecord
 
 
 ## Setup

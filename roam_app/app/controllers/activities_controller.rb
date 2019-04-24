@@ -35,8 +35,13 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    @activity.update(activity_params)
-    redirect_to activity_path(@activity)
+
+    if @activity.update(activity_params)
+      redirect_to activity_path(@activity)
+    else
+      flash[:notice] = "Please complete the form with valid entries."
+      redirect_to(controller: 'activities', action: 'edit')
+    end
   end
 
   def index
