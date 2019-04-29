@@ -17,8 +17,6 @@ class TripsController < ApplicationController
       redirect_to ("/trips/#{@trip.id}")
     else #use errors hash instead of flash and render page
       flash[:notice] = "Please complete the form with valid entries."
-    else
-      flash[:notice] = "Please enter a valid time."
       redirect_to(controller: 'trips', action: 'new')
     end
   end

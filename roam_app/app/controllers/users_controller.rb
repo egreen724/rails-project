@@ -10,13 +10,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    @user = User.new(user_params)
 
     if User.find_by(email: params[:user][:email])
       flash[:notice] = "This email address is already in the Roam system. Please log in."
-    elsif
-      user.valid? && params[:user][:password] == params[:user][:password_confirmation]
-        @user = User.create(user_params)
+    elsif @user.save && params[:user][:password] == params[:user][:password_confirmation]
         session[:user_id] = @user.id
         redirect_to ("/users/#{@user.id}")
     else
@@ -28,7 +26,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @current_user = current_user
-    
+
     if @user.trips != []
       if @user.sorted_by_date.last.taken == true
         @recent_trip = @user.sorted_by_date.last

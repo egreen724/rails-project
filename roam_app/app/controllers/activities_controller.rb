@@ -9,12 +9,10 @@ class ActivitiesController < ApplicationController
 
     @activity = Activity.new(activity_params)
 
-    if Activity.find_by(name: params[:activity][:name])
+    if @activity.save
+      redirect_to ("/activities/#{@activity.id}")
+    elsif Activity.find_by(name: params[:activity][:name])
       flash[:notice] = "This activity already exists in the Roam system."
-    elsif
-      activity.valid?
-        @activity.save
-        redirect_to ("/activities/#{@activity.id}")
     else
       flash[:notice] = "Please complete the form with valid entries."
       redirect_to(controller: 'activities', action: 'new')
