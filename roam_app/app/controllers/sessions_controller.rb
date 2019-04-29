@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
      redirect_to(controller: 'sessions', action: 'new')
    else
      if @user.authenticate(params[:user][:password])
-     session[:user_id] = @user.id
-     redirect_to ("/users/#{@user.id}")
+       session[:user_id] = @user.id
+       redirect_to ("/users/#{@user.id}")
     end
    end
  end
