@@ -12,9 +12,9 @@ users = User.create(
   [
     {name: "Audre",
     email: "audre_green@yahoo.com",
-    password_digest: "test",
+    password: "test",
     bio: "Outdoorswoman",
-    age: "28"
+    age: 28
   }
   ]
 )
@@ -34,3 +34,42 @@ activities = Activity.create(
     }
   ]
 )
+
+def hikingProject
+  resp = Faraday.get'https://www.trailrunproject.com/data/get-trails?lat=33.7490&lon=-84.3880&maxDistance=100&key=200698535-4098c733d748c83170ea0acf1eb80619' do
+  end
+  resp_body = JSON.parse(resp.body)
+
+  trail_hash = resp_body["trails"]
+
+  trail_hash.each do |trail, index|
+
+    if trail["difficulty"].include? "blue"
+      rating = 3
+    elsif trail["difficulty"].include? "black"
+      rating = 5
+    else
+      rating = 1
+    end
+
+    city = trail["location"].split(',')[0]
+    state = trail["location"].split(',')[1]
+
+    new_trail = Activity.new(
+      name: trail["name"],
+      distance: trail["length"],
+      state: "GA",
+      city: city,
+      zip_code: 30306,
+      category: "hike",
+      difficulty_rating: rating,
+      creator_id: 1
+    )
+  
+
+    if new_trail.valid?
+      new_trail.save
+    end
+
+  end
+end
