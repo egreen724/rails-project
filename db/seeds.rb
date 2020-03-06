@@ -36,7 +36,7 @@ activities = Activity.create(
 )
 
 def hikingProject
-  resp = Faraday.get'https://www.trailrunproject.com/data/get-trails?lat=33.7490&lon=-84.3880&maxDistance=100&key=200698535-4098c733d748c83170ea0acf1eb80619' do
+  resp = Faraday.get'https://www.trailrunproject.com/data/get-trails?lat=33.7490&lon=-84.3880&maxDistance=500&key=200698535-4098c733d748c83170ea0acf1eb80619' do
   end
   resp_body = JSON.parse(resp.body)
 
@@ -61,11 +61,11 @@ def hikingProject
       state: "GA",
       city: city,
       zip_code: 30306,
-      category: "hike",
+      category: "Hike",
       difficulty_rating: rating,
       creator_id: 1
     )
-  
+
 
     if new_trail.valid?
       new_trail.save
